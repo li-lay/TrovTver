@@ -19,5 +19,5 @@ jobs:
     - name: Login to Docker Hub and push
       run: |
         docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-        docker push trovtver:latest
+        docker push lilay/trovtver:latest
     
