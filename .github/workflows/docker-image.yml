@@ -16,5 +16,5 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: |
-        docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-        docker build . --file Dockerfile --tag trovtver:latest
+        docker login -u lilay -p ${{ secrets.DOCKERHUB_TOKEN }}
+        docker build . --file Dockerfile --tag lilay/trovtver:latest
