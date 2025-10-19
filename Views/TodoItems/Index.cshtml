@@ -1,0 +1,69 @@
+@model List<TrovTver.Models.TodoItems>
+
+@{
+    ViewData["Title"] = "Trov Tver";
+}
+
+<style>
+    .completed-task {
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+        color: black;
+    }
+</style>
+
+<div class="logo center"><h1>Trov Tver - ត្រូវធ្វើ</h1></div>
+
+<div class="center">
+  <p>
+      <a asp-controller="TodoItems" asp-action="Create" class="btn btn-primary">Create New Todo</a>
+  </p>
+</div>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Title</th>
+                <th>Due Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+             @foreach (var item in Model)
+            {
+                <tr class="@(item.IsDone ? "completed-task" : "")">
+                    <td>
+                        <form asp-action="ToggleIsDone" asp-route-id="@item.Id" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="checkbox" checked="@item.IsDone" onchange="this.form.submit()" />
+                        </form>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @if (item.DueDate.HasValue)
+                        {
+                            @item.DueDate.Value.ToShortDateString()
+                        }
+                        else
+                        {
+                            <span>N/A</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No todo items found. Get started by creating one!</p>
+}

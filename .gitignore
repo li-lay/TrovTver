@@ -1,0 +1,59 @@
+# ################## #
+# ##  User-specific files
+# ################## #
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ################## #
+# ##  Build results
+# ################## #
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa]rm/
+[Aa]rm64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# ################## #
+# ##  IDE / Editor specific
+# ################## #
+# Visual Studio
+.vs/
+# VS Code
+.vscode/
+
+# ################## #
+# ##  Generated files
+# ################## #
+# Local database files
+*.db
+*.mdf
+*.ldf
+*.sqlite
+
+# Log files
+*.log
+
+# ################## #
+# ##  Miscellaneous
+# ################## #
+# NuGet packages folder
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+
+# Dotnet Tooling
+.store/
+
+# Mac/Linux files
+.DS_Store
+Thumbs.db
